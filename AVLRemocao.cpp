@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
 
 /* -----------------------------------------------------------
@@ -286,7 +286,6 @@ NO* removerArvore(NO* no, int valor) {
         // Condição: verificar se o ponteiro esquerdo é NULL
         // Ação: armazene o ponteiro do filho direito em uma variável temporária,
         //       libere o nó atual e retorne o ponteiro do filho direito
-        /
         
         // Subcaso 2b: Apenas filho esquerdo existe (direita é NULL)
         // Condição: verificar se o ponteiro direito é NULL
@@ -312,6 +311,32 @@ NO* removerArvore(NO* no, int valor) {
       
         
         /* IMPLEMENTE OS TRÊS CASOS ACIMA */
+
+            if (no->esq == NULL && no->dir == NULL)//1 nenhum filho
+            {
+                free(no);
+                return NULL;
+            }
+            else if (no->dir != NULL && no->esq == NULL)//2 filho da direita
+            {
+                NO* aux = no->dir;
+                free(no);
+                return aux;
+            }
+            else if (no->esq != NULL && no->dir == NULL)//3 filho da esquerda
+            {
+                NO* aux = no->esq;
+                free(no);
+                return aux;
+            }
+            else if (no->esq != NULL && no->dir != NULL)//4 dois filhos
+            {
+                while (no->dir->esq != NULL)
+                {
+                    NO* aux = no->esq;
+                }
+            }
+            
     }
     
     // Passo 4: Atualiza altura do nó após a remoção
